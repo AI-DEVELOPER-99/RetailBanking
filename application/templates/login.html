@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Mars | Login {% endblock %}
+
+{% block content %}
+
+
+<header style="display: flex;flex-direction: column;justify-content: center;">
+    <h1 class="text-center text-white" style=" font-family: 'Fira Sans', sans-serif;"> Welcome to <span style="color: gold;">MARS BANK</span></h1>
+    <br>
+  
+    <div class="login-wrapper">
+       
+        <div class="form-signin">
+            {% include "includes/flash_message.html" %}
+            <h2 class="form-signin-heading text-center">Login</h2>
+            <form action=" {{ url_for('login') }} " method="POST" data-parsley-validate>
+            <label for="username">&nbsp;Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" 	data-parsley-type="alphanum" minlength="8" required autofocus>
+            <label for="password">&nbsp;Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" pattern="/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{10,}$/" data-parsley-error-message = "Password should contain 10 characters including one special character, one upper case, one lower case and one numeric" required>
+             <select name="login_type" class="form-control" required>
+                 <option value="cust_executive">Login as Customer Executive</option>
+                 <option value="cashier">Login as Cashier</option>
+             </select>   
+            <button type="submit" class="btn btn-lg btn-primary btn-block mt-3">Login</button>
+        </form>         
+        </div>
+    </div>
+</header>
+
+
+
+{% endblock %}
+

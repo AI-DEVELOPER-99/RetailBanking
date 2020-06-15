@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title> {% block title %}{% endblock %}
+  </title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href=" {{ url_for('static', filename = 'css/bootstrap.min.css') }} " rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href=" {{ url_for('static', filename = 'css/mdb.min.css') }}" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static',filename = 'css/parsley.css') }}">
+  <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static',filename = 'css/style.css') }}">
+  <script src=" {{ url_for('static', filename = 'js/cities.js') }} "></script>
+
+
+</head>
+
+<body>
+
+  {% if not login_page  %}
+  {% if 1==1 %}
+  {% include "includes/customer_executive_navbar.html" %}
+  {% else %}
+  {% include "includes/cashier_navbar.html" %}
+  {% endif %}
+  {% endif %}
+
+
+  {% block content %}
+  {% endblock %}
+
+
+
+  <a href="#" id="scroll" style="display: none;"><span></span></a>
+
+  {% if not login_page %}
+  <!-- Footer -->
+  <footer class="page-footer font-small black pt-4 mt-4" style="border-top: 3px solid gold;">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h5 class="text-uppercase gold-text font-weight-bold">About Us</h5>
+          <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis ipsam quisquam facere, voluptas ab
+            at, magnam sequi consequuntur sint a necessitatibus temporibus minus? Reprehenderit nisi laudantium eum
+            recusandae magnam nam.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text-uppercase gold-text font-weight-bold">Services</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Retail and Customer Banking </a>
+            </li>
+            <li>
+              <a href="#!">Personal Internet Banking</a>
+            </li>
+            <li>
+              <a href="#!">Corporate Internet Banking</a>
+            </li>
+            <li>
+              <a href="#!">Debit and Credit Cards</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+          <!-- Links -->
+          <h5 class="text-uppercase gold-text font-weight-bold">Contact Us</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Email: sainathomdas@gmail.com</a>
+            </li>
+            <li>
+              <a href="#!">Contact No.: 84650 52042</a>
+            </li>
+            <li>
+              <a href="#!">Address: Mars Bank, Hyderabad, Telangana - 500051</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright font-small elegant-color-dark text-center py-2">© 2020 Copyright:
+      All rights reserved
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  {% endif %}
+
+  <!-- JQuery -->
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/jquery.min.js') }}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/popper.min.js') }} "></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/mdb.min.js') }}"></script>
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/parsley.min.js') }}"></script>
+  
+  <script type="text/javascript" src=" {{ url_for('static', filename = 'js/my_js.js') }}"></script>
+
+
+{% if datatable %}
+    <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="{{ url_for('static', filename = 'js/addons/datatables.min.js') }}"></script>
+  <script>
+    $(document).ready(function () {
+      $('#datatable').DataTable({
+        "ordering": false,
+        // "scrollY": "1000px",
+        // "scrollCollapse": true  
+      });
+      $('.dataTables_length').addClass('bs-select');
+
+    });
+  </script>
+{% endif %}
+
+
+
+  
+</body>
+
+</html>

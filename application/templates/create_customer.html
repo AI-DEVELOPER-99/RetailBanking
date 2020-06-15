@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %} Mars | Create Customer {% endblock %}
+
+{% block content %}
+
+<div class="wrapper mt-5">
+	<div class="title">
+		Create Customer
+	</div>
+
+	{% include "includes/flash_message.html" %}
+
+	<form action="" method="POST" data-parsley-validate>
+		<div class="form">
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_ssid">Customer SSN ID <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<input id="cust_ssid" name="cust_ssid" class="input form-control-sm" required minlength="9"
+							maxlength="9" data-parsley-error-message="Must be 9 digits long"
+							data-parsley-type="integer">
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_name">Customer Name <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<input type="text" name="cust_name" class="input form-control-sm" required>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_age">Age <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<input name="cust_age" class="input form-control-sm" data-parsley-type="number"
+							data-parsley-type="integer" maxlength="3" required>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_address">Address <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<textarea name="cust_address" class="textarea form-control-sm" required></textarea>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_state">State <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<div class="custom_select ">
+							<select onchange="print_city('state', this.selectedIndex);" id="sts" name="cust_state"
+								class="form-control" required></select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_city">City <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<div class="custom_select ">
+							<select id="state" class="form-control" name="cust_city" required></select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<span class="star font-small font-weight-bolder ml-1 mt-0 pt-0"> (*) Fields are compulsory</span>
+
+			<div>
+				<input type="submit" value="Create" class="btn btn-sm black gold-text">
+				<input type="reset" value="Reset" class="ml-lg-5 btn btn-sm black white-text">
+			</div>
+
+		</div>
+
+	</form>
+</div>
+
+
+
+<script language="javascript">print_state("sts");</script>
+
+
+
+
+{% endblock %}

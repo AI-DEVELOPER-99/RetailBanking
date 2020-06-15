@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Mars | Create Account {% endblock %}
+
+{% block content %}
+
+<div class="wrapper mt-5">
+	<div class="title">
+		Create Account
+	</div>
+
+	{% include "includes/flash_message.html" %}
+
+	<form action=" {{ url_for('createAccount') }} " method="POST" data-parsley-validate>
+		<div class="form">
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_id">Customer ID <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<input id="cust_ssid" name="cust_id" class="input form-control-sm" required minlength="9"
+							maxlength="9" data-parsley-error-message="Must be 9 digits long"
+							data-parsley-type="integer">
+					</div>
+				</div>
+            </div>
+            
+            <div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="account_type">Account Type <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<div class="custom_select ">
+							<select id="account_type" class="form-control" name="account_type" required>
+                                <option value="">Select Account Type</option>
+                                <option value="savings">Savings</option>
+                                <option value="current">Current</option>
+                            </select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="deposit_amt">Deposit Amount <span class="star">*</span> </label>
+					</div>
+					<div class="col-md-8">
+						<input type="number" name="deposit_amt" class="input form-control-sm" data-parsley-type="number"
+							data-parsley-type="digits" required data-parsley-error-message="Required and only integers allowed">
+					</div>
+				</div>
+			</div>
+
+			<span class="star font-small font-weight-bolder ml-1 mt-0 pt-0"> (*) Fields are compulsory</span>
+
+			<div>
+				<input type="submit" value="Create" class="btn btn-sm black gold-text">
+				<input type="reset" value="Reset" class="ml-lg-5 btn btn-sm black white-text">
+			</div>
+
+		</div>
+
+	</form>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

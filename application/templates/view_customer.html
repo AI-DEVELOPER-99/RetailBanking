@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %} Mars | View Customer {% endblock %}
+
+{% block content %}
+
+<div class="wrapper mt-5">
+	<div class="title">
+		View Customer
+	</div>
+
+	{% include "includes/flash_message.html" %}
+
+	<form action=" {{ url_for('updateCustomer') }} " method="POST">
+		<input name="input_type" value="cust_id" hidden>
+		<input name="id" value="" hidden>
+		<div class="form">
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_ssid">Customer SSN ID </label>
+					</div>
+					<div class="col-md-8">
+						<input type="number" name="cust_ssid" class="input form-control-sm disabled" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_id">Customer ID </label>
+					</div>
+					<div class="col-md-8">
+						<input type="number" name="cust_id" class="input form-control-sm disabled" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_name">Customer Name </label>
+					</div>
+					<div class="col-md-8">
+						<input type="text" name="cust_name" class="input form-control-sm disabled" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_age">Age </label>
+					</div>
+					<div class="col-md-8">
+						<input type="number" name="cust_age" class="input form-control-sm disabled" readonly>
+					</div>
+				</div>
+			</div>
+
+			<div class="inputfield">
+				<div class="row">
+					<div class="col-md-4">
+						<label for="cust_address">Address </label>
+					</div>
+					<div class="col-md-8">
+						<textarea name="cust_address" class="textarea form-control-sm disabled" readonly></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<input type="submit" value="Edit" class="btn btn-sm red white-text">
+                
+                <a href=" {{ url_for('customerManagement') }} " class=" btn btn-sm black white-text ml-lg-5">Back</a>
+			</div>
+
+		</div>
+
+	</form>
+</div>
+
+
+{% endblock %}
