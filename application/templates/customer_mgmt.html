@@ -26,34 +26,39 @@
         <th scope="col" class="font-weight-bold">View Customer</th>
       </tr>
     </thead>
+
+    {% for row in data%}
     
     <tbody class="text-dark font-weight-bold">
 
       <tr>
-        <td class="font-weight-normal">123456789</td>
-        <td class="font-weight-normal">987654321</td>
+        <td class="font-weight-normal">{{row.custid}}</td>
+        <td class="font-weight-normal">{{row.ssnid}}</td>
         <td class="font-weight-normal">Active</td>
         <td class="font-weight-normal">
-            <form action=" {{ url_for('updateCustomer') }} " method="GET">
-              <input name="input_type" value="cust_id" hidden>
-                <input name="id" value="" hidden>
+            <form action=" {{ url_for('updateCustomer') }} " method="POST">
+              <input type="text" name="input_type" value="cust_id" hidden>
+                <input type="text" name="id" value={{row.custid}} hidden>
                 <input type="submit" class="border-0 btn-sm px-3" style="color: white;background-color: blue;" value="Update">
             </form>
         </td>        
         <td class="font-weight-normal">
             <form action=" {{ url_for('deleteCustomer') }} " method="POST">
-                <input name="cust_id" value="" hidden>
+              <input type="text" name="input_type" value="cust_id" hidden>
+                <input type="text" name="id" value={{row.custid}} hidden>
                 <input type="submit" class="border-0 btn-danger btn-sm px-3" style="color: white;" value="Delete">
             </form>
         </td>
         <td class="font-weight-normal">
             <form action=" {{ url_for('viewCustomer') }} " method="POST">
-                <input name="cust_id" value="" hidden>
+                <input type="text" name="input_type" value="cust_id" hidden>
+                <input name="id" value={{row.custid}} hidden>
                 <input type="submit" class="border-0 btn-success btn-sm px-4" style="color: white;" value="View">
             </form>
          </td>
       </tr>
 
+      {% endfor %}
       
      
 

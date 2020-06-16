@@ -59,7 +59,7 @@
 					<label for="cust_ssid">Customer SSN ID  </label> 
 				</div>
 				<div class="col-md-8">
-					<input type="number" name="cust_ssid" class="input form-control-sm disabled" readonly>
+					<input type="number" name="cust_ssid" class="input form-control-sm disabled" value={{data.ssnid}} readonly>
 				</div>
 			</div>
 		 </div>
@@ -70,7 +70,7 @@
 					<label for="cust_id">Customer ID </label> 
 				 </div>
 				 <div class="col-md-8">
-					<input type="number" name="cust_id" class="input form-control-sm disabled" readonly>
+					<input type="number" name="cust_id" class="input form-control-sm disabled" value={{data.custid}} readonly>
 				 </div>
 			 </div>
 		 </div>    
@@ -81,7 +81,7 @@
 				<label for="cust_name">Customer Name </label>
 			   </div>
 			   <div class="col-md-8">
-				<input type="text" name="cust_name" class="input form-control-sm disabled" readonly> 
+				<input type="text" name="cust_name" class="input form-control-sm disabled" value={{data.name}} readonly> 
 			   </div>
 		   </div>
 	   </div>  
@@ -92,7 +92,7 @@
 				<label for="cust_age">Age </label>
 			   </div>
 			   <div class="col-md-8">
-				<input type="number" name="cust_age" class="input form-control-sm disabled" readonly>
+				<input type="number" name="cust_age" class="input form-control-sm disabled" value={{data.age}} readonly>
 			   </div>
 		   </div>
 	 </div>
@@ -103,11 +103,9 @@
 				<label for="cust_address">Address  </label>
 			 </div>
 			 <div class="col-md-8">
-				<textarea name="cust_address" class="textarea form-control-sm disabled" readonly></textarea>
+				<textarea name="cust_address" class="textarea form-control-sm disabled" readonly>{{data.address}}</textarea>
 			 </div>
 		 </div>
-		
-		
 	 </div> 
 
 	  
